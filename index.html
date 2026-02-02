@@ -1,115 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Just For You ❤️</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #ff758c, #ff7eb3);
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-align: center;
-    }
-
-    .box {
-      background: rgba(255,255,255,0.15);
-      padding: 30px;
-      border-radius: 20px;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-      width: 90%;
-      max-width: 380px;
-    }
-
-    h1 {
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.1rem;
-    }
-
-    button {
-      padding: 12px 20px;
-      border-radius: 25px;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      margin: 10px;
-    }
-
-    .yes {
-      background: #ff4d6d;
-      color: white;
-    }
-
-    .no {
-      background: #333;
-      color: white;
-      position: absolute;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .question {
-      margin-top: 20px;
-      font-size: 1.1rem;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>My Valentine ❤️</title>
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:linear-gradient(135deg,#ff758c,#ff7eb3);
+  font-family:'Segoe UI',sans-serif;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  text-align:center;
+}
+.box{
+  background:rgba(255,255,255,0.15);
+  padding:25px;
+  border-radius:20px;
+  width:90%;
+  max-width:380px;
+  backdrop-filter:blur(10px);
+}
+button{
+  margin:8px;
+  padding:10px 18px;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  font-size:1rem;
+}
+.yes{background:#ff4d6d;color:#fff;}
+.no{background:#333;color:#fff;position:absolute;}
+.option{background:#fff;color:#ff4d6d;}
+.hidden{display:none;}
+img{width:150px;margin:15px 0;border-radius:15px;}
+</style>
 </head>
 <body>
 
-<audio autoplay loop>
+<!-- Background Music -->
+<audio id="bgSong" autoplay loop>
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
 
 <div class="box">
-  <h1>Hey Love ❤️</h1>
-  <p>I made something special for you.</p>
 
-  <div class="question">
-    💭 Do you know how much you mean to me?
-  </div>
-
-  <div class="question">
-    🌸 You make my bad days better and good days perfect.
-  </div>
-
+<!-- Q1 -->
+<div id="q1">
   <h2>Will you be my Valentine? 💘</h2>
+  <p>No bolne ka sochna bhi nahi…<br>Ajma ke dekh lo click karke 😏</p>
+  <button class="yes" onclick="showQ2()">YES 💖</button>
+  <button class="no" id="noBtn" onmouseover="moveNo()">NO 😜</button>
+</div>
 
-  <button class="yes" onclick="yesClicked()">YES 💖</button>
-  <button class="no" id="noBtn" onmouseover="moveNo()">NO 😏</button>
+<!-- Q2 -->
+<div id="q2" class="hidden">
+  <h3>Ooo Mere Sakhaaa… 💕</h3>
+  <p>Jara humare kuch pyare palo ke sawal dete jaye 😌</p>
+  <p><b>Pure ke bhi pura sa ________</b></p>
 
-  <div id="finalMsg" class="hidden">
-    <h2>YAYYYY 💍💖</h2>
-    <p>
-      You just made me the happiest person.<br>
-      Happy Valentine’s Day 💕<br>
-      I’m so lucky to have you.
-    </p>
-  </div>
+  <button class="option" onclick="wrong()">thoda thoda sa</button>
+  <button class="option" onclick="wrong()">pta nahi</button>
+  <button class="option" onclick="correctQ2()">bahut se bhi bahut jada saa</button>
+  <button class="option" onclick="wrong()">pyar h tumse</button>
+</div>
+
+<!-- Q2 Correct -->
+<div id="q2c" class="hidden">
+  <h3>My jaan 💖</h3>
+  <p>Congratulations 😘</p>
+  <img src="https://i.ibb.co/8mWw3Qb/teddy-kiss.png" alt="Teddy Bear">
+  <button class="yes" onclick="showQ3()">Next ➡️</button>
+</div>
+
+<!-- Q3 -->
+<div id="q3" class="hidden">
+  <h3>Next Question 🌸</h3>
+  <p>In flowers, which one I like the most?</p>
+
+  <button class="option" onclick="wrong()">Rose</button>
+  <button class="option" onclick="wrong()">Lotus</button>
+  <button class="option" onclick="correctQ3()">Tulip</button>
+  <button class="option" onclick="wrong()">Orchid</button>
+</div>
+
+<!-- After Q3 -->
+<div id="finalLove" class="hidden">
+  <p>You know you mean so much to me 🥺❤️</p>
+  <p><b>Bahut pyar karti hoon had se bhi zyada…<br>
+  Tumse bhi zyada 💕</b></p>
+  <img src="https://i.ibb.co/8mWw3Qb/teddy-kiss.png" alt="Teddy Bear">
+  <button class="yes" onclick="finalMessage()">Click Next 💌</button>
+</div>
+
+<!-- Final Message -->
+<div id="end" class="hidden">
+  <h2>Happy Valentine 💖</h2>
+  <p>
+    Tum mere liye sirf ek person nahi ho,<br>
+    tum meri safe place ho.<br><br>
+
+    Tumhari ek smile meri saari thakaan mita deti hai,<br>
+    aur tumhara saath meri duniya complete karta hai.<br><br>
+
+    I don’t need perfect days,<br>
+    I just need <b>you</b> in all my days. 💫
+  </p>
+  <img src="https://i.ibb.co/8mWw3Qb/teddy-kiss.png" alt="Teddy Bear">
+  <audio autoplay>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+  </audio>
+  <h3>Happy Valentine to my Valentine 💘</h3>
+</div>
+
 </div>
 
 <script>
-  function moveNo() {
-    const noBtn = document.getElementById("noBtn");
-    const x = Math.random() * (window.innerWidth - 100);
-    const y = Math.random() * (window.innerHeight - 50);
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
-  }
+function moveNo(){
+  const b=document.getElementById("noBtn");
+  const x=Math.random()*200;
+  const y=Math.random()*200;
+  b.style.left=x+"px";
+  b.style.top=y+"px";
+}
 
-  function yesClicked() {
-    document.getElementById("finalMsg").classList.remove("hidden");
-  }
+function showQ2(){
+  document.getElementById("q1").style.display="none";
+  document.getElementById("q2").style.display="block";
+}
+
+function correctQ2(){
+  document.getElementById("q2").style.display="none";
+  document.getElementById("q2c").style.display="block";
+  playMiniSong();
+}
+
+function showQ3(){
+  document.getElementById("q2c").style.display="none";
+  document.getElementById("q3").style.display="block";
+}
+
+function correctQ3(){
+  document.getElementById("q3").style.display="none";
+  document.getElementById("finalLove").style.display="block";
+  playMiniSong();
+}
+
+function finalMessage(){
+  document.getElementById("finalLove").style.display="none";
+  document.getElementById("end").style.display="block";
+  playFinalSong();
+}
+
+function wrong(){
+  alert("Galat jawab 😜 dobara socho!");
+}
+
+// Mini romantic song for correct answer
+function playMiniSong(){
+  let audio=new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
+  audio.play();
+}
+
+// Final Valentine song
+function playFinalSong(){
+  let audio=new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3");
+  audio.play();
+}
 </script>
 
 </body>
 </html>
+
+   
+
+    
+    
