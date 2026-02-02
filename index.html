@@ -2,153 +2,228 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Valentine ❤️</title>
-
-<!-- HARMLSS COMMENT FOR GITHUB REBUILD -->
-<!-- Ranii Fix: rebuild trigger for Pages -->
+<title>My Valentine 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
   margin:0;
-  height:100vh;
-  background:linear-gradient(135deg,#ff758c,#ff7eb3);
   font-family:'Segoe UI',sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  color:#fff;
+  background:linear-gradient(#ffe6f0,#ffd6e8);
   text-align:center;
+  overflow-x:hidden;
 }
-.box{
-  background:rgba(255,255,255,0.15);
-  padding:25px;
-  border-radius:20px;
-  width:90%;
-  max-width:380px;
-  backdrop-filter:blur(10px);
+.section{
+  display:none;
+  padding:30px;
 }
+.active{display:block;}
 button{
-  margin:8px;
-  padding:10px 18px;
+  padding:12px 22px;
+  font-size:16px;
   border:none;
   border-radius:20px;
+  background:#ff4d88;
+  color:white;
   cursor:pointer;
-  font-size:1rem;
+  margin:10px;
 }
-.yes{background:#ff4d6d;color:#fff;}
-.no{background:#333;color:#fff;position:absolute;}
-.option{background:#fff;color:#ff4d6d;}
-.hidden{display:none;}
-</style>
+button:hover{background:#ff1f6b;}
 
+#noBtn{
+  position:absolute;
+}
+
+img{
+  width:260px;
+  border-radius:18px;
+  margin-top:20px;
+  box-shadow:0 10px 20px rgba(0,0,0,.2);
+}
+
+.kiss{
+  position:fixed;
+  top:-30px;
+  font-size:24px;
+  animation:fall 4s linear infinite;
+}
+@keyframes fall{
+  to{transform:translateY(110vh);}
+}
+
+.story{
+  max-width:750px;
+  margin:auto;
+  font-size:16px;
+  line-height:1.7;
+}
+</style>
 </head>
+
 <body>
 
-<div class="box">
+<!-- MUSIC -->
+<audio id="song1" loop>
+  <source src="tum_hi_ho.mp3" type="audio/mpeg">
+</audio>
+<audio id="song2" loop>
+  <source src="tere_liye_mandir.mp3" type="audio/mpeg">
+</audio>
 
-<!-- Q1 -->
-<div id="q1">
-  <h2>Will you be my Valentine? 💘</h2>
-  <p>No bolne ka sochna bhi nahi…<br>Ajma ke dekh lo click karke 😏</p>
-  <button class="yes" onclick="showQ2()">YES 💖</button>
-  <button class="no" id="noBtn" onmouseover="moveNo()">NO 😜</button>
+<!-- SECTION 1 -->
+<div id="s1" class="section active">
+  <h2>Will you be my Valentine? 💌</h2>
+  <button onclick="yesValentine()">YES 💖</button>
+  <button id="noBtn">NO 😏</button>
 </div>
 
-<!-- Q2 -->
-<div id="q2" class="hidden">
-  <h3>Ooo Mere Sakhaaa… 💕</h3>
-  <p>Jara humare kuch pyare palo ke sawal dete jaye 😌</p>
-  <p><b>Pure ke bhi pura sa ________</b></p>
-
-  <button class="option" onclick="wrong()">thoda thoda sa</button>
-  <button class="option" onclick="wrong()">pta nahi</button>
-  <button class="option" onclick="correctQ2()">bahut se bhi bahut jada saa</button>
-  <button class="option" onclick="wrong()">pyar h tumse</button>
-</div>
-
-<!-- Q2 Correct -->
-<div id="q2c" class="hidden">
-  <h3>My jaan 💖</h3>
-  <p>Congratulations 😘</p>
-  <button class="yes" onclick="showQ3()">Next ➡️</button>
-</div>
-
-<!-- Q3 -->
-<div id="q3" class="hidden">
-  <h3>Next Question 🌸</h3>
-  <p>In flowers, which one I like the most?</p>
-
-  <button class="option" onclick="wrong()">Rose</button>
-  <button class="option" onclick="wrong()">Lotus</button>
-  <button class="option" onclick="correctQ3()">Tulip</button>
-  <button class="option" onclick="wrong()">Orchid</button>
-</div>
-
-<!-- After Q3 -->
-<div id="finalLove" class="hidden">
-  <p>You know you mean so much to me 🥺❤️</p>
-  <p><b>Bahut pyar karti hoon had se bhi zyada…<br>
-  Tumse bhi zyada 💕</b></p>
-  <button class="yes" onclick="finalMessage()">Click Next 💌</button>
-</div>
-
-<!-- Final Message -->
-<div id="end" class="hidden">
-  <h2>Happy Valentine 💖</h2>
+<!-- SECTION 2 -->
+<div id="s2" class="section">
+  <h3>Yayyyy 💕</h3>
   <p>
-    Tum mere liye sirf ek person nahi ho,<br>
-    tum meri safe place ho.<br><br>
-
-    Tumhari ek smile meri saari thakaan mita deti hai,<br>
-    aur tumhara saath meri duniya complete karta hai.<br><br>
-
-    I don’t need perfect days,<br>
-    I just need **you** in all my days. 💫
+    From destiny to distance,<br>
+    from smiles to silence,<br>
+    you were always my choice 🤍
   </p>
-  <img src="https://i.ibb.co/0c1V7F5/teddy-kiss.png" alt="Teddy Kiss" width="200">
-  <p>Happy Valentine to my Valentine 💘</p>
-  <audio autoplay>
-    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
-  </audio>
+  <button onclick="next('s3')">Next ➝</button>
 </div>
 
+<!-- SECTION 3 -->
+<div id="s3" class="section">
+  <h3>Pure ke bhi puraaa sa… 💭</h3>
+  <button onclick="rightAns()">bahut se bhi bahut jada sa</button>
+  <button onclick="wrong()">thoda thoda sa</button>
+  <button onclick="wrong()">pta nahi</button>
+  <button onclick="wrong()">pyara sa</button>
+</div>
+
+<!-- SECTION 4 -->
+<div id="s4" class="section">
+  <h3>Which flower I love the most? 🌷</h3>
+  <button onclick="wrong()">Rose</button>
+  <button onclick="wrong()">Lotus</button>
+  <button onclick="rightAns()">Tulip</button>
+  <button onclick="wrong()">Orchid</button>
+</div>
+
+<!-- SECTION 5 -->
+<div id="s5" class="section">
+  <h2>💋💋💋</h2>
+  <p>Correct answers deserve kisses 😘</p>
+  <img src="pic1.jpg">
+</div>
+
+<!-- SECTION 6 -->
+<div id="s6" class="section">
+  <h2>Happy Valentine 💝</h2>
+  <h3>To my man 🫶</h3>
+  <img src="pic3.jpg">
+
+  <div class="story">
+    <p>
+Jaise sab kuch destiny ne hi plan kiya ho…<br>
+Jagannath Puri jaana, mano unhone khud humein bless kiya ho 🤍<br><br>
+
+Phir October me hum dono ka dubara milna…<br>
+door se hi ek-dusre ko dekhna,<br>
+sirf aankhon se feelings express karna…<br>
+aur phir dheere se accept kar lena —<br>
+<b>Yes, we are in love 💫</b><br><br>
+
+Jagga ke pigeon love birds,<br>
+jaise universe ne humein sign de diya ho 🕊️🕊️<br><br>
+
+Vizag jaana,<br>
+aur wahan humari pyari si pre-mingle photoshoot —<br>
+haan haan, post bhi kar sakte ho 😄<br>
+Umaahhhh… I just love those moments 💕<br><br>
+
+Phir Bhubaneswar,<br>
+jahan hum ruke the,<br>
+our first meetup — heart to heart 🫶<br><br>
+
+Mmmmm… bade tez ho rahe ho,<br>
+zyada kuch mat socho 😌<br><br>
+
+Uske baad jitni bhi jagah gaye…<br>
+ufff, sirf blessings hi blessings ✨<br><br>
+
+Sawan ke pehle Somwar me,<br>
+tumhare saath Pashupatinath jaana<br>
+mere liye sach me kisi blessing se kam nahi tha…<br>
+aur phir Kamakhya…<br>
+mano Kanha ji, Mahadev aur Maa Parvati<br>
+sabne humein bless kiya ho 🙏<br><br>
+
+So so so so much gratitude<br>
+to our universe —<br>
+itna sab dene ke liye…<br>
+thank you very much 🌍✨<br><br>
+
+Aur thank you tumhe bhi,<br>
+itna sehne ke liye…<br>
+tum khushi-khushi mujhe sambhaal lete ho 🤍<br><br>
+
+<b>
+I love you the most —<br>
+my personal,<br>
+my safe,<br>
+my only man ❤️<br><br>
+my valentine 💖<br>
+lots of love bby 😘
+</b>
+    </p>
+  </div>
 </div>
 
 <script>
-function moveNo(){
-  const b=document.getElementById("noBtn");
-  b.style.left=Math.random()*200+"px";
-  b.style.top=Math.random()*200+"px";
+const noBtn=document.getElementById("noBtn");
+noBtn.addEventListener("mouseover",()=>{
+  noBtn.style.left=Math.random()*80+"vw";
+  noBtn.style.top=Math.random()*80+"vh";
+});
+
+function yesValentine(){
+  document.getElementById("song1").play();
+  next('s2');
 }
-function showQ2(){
-  q1.style.display="none";
-  q2.style.display="block";
+
+function next(id){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
 }
-function correctQ2(){
-  q2.style.display="none";
-  q2c.style.display="block";
-}
-function showQ3(){
-  q2c.style.display="none";
-  q3.style.display="block";
-}
-function correctQ3(){
-  q3.style.display="none";
-  finalLove.style.display="block";
-}
-function finalMessage(){
-  finalLove.style.display="none";
-  end.style.display="block";
-}
+
 function wrong(){
-  alert("Galat jawab 😜 dobara socho!");
+  alert("Nope 😜 Dil se socho!");
+}
+
+function rightAns(){
+  for(let i=0;i<20;i++){
+    let k=document.createElement("div");
+    k.className="kiss";
+    k.innerHTML="💋";
+    k.style.left=Math.random()*100+"vw";
+    k.style.animationDuration=2+Math.random()*3+"s";
+    document.body.appendChild(k);
+    setTimeout(()=>k.remove(),5000);
+  }
+  next('s5');
+  setTimeout(()=>{next('s6');playLast();},3500);
+}
+
+function playLast(){
+  document.getElementById("song1").pause();
+  document.getElementById("song2").play();
 }
 </script>
 
 </body>
 </html>
 
+ 
   
+
+
   
 
 
