@@ -3,6 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>My Valentine ❤️</title>
+
+<!-- HARMLSS COMMENT FOR GITHUB REBUILD -->
+<!-- Ranii Fix: rebuild trigger for Pages -->
+
 <style>
 body{
   margin:0;
@@ -35,15 +39,10 @@ button{
 .no{background:#333;color:#fff;position:absolute;}
 .option{background:#fff;color:#ff4d6d;}
 .hidden{display:none;}
-img{width:150px;margin:15px 0;border-radius:15px;}
 </style>
+
 </head>
 <body>
-
-<!-- Background Music -->
-<audio id="bgSong" autoplay loop>
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
 
 <div class="box">
 
@@ -71,7 +70,6 @@ img{width:150px;margin:15px 0;border-radius:15px;}
 <div id="q2c" class="hidden">
   <h3>My jaan 💖</h3>
   <p>Congratulations 😘</p>
-  <img src="https://i.ibb.co/8mWw3Qb/teddy-kiss.png" alt="Teddy Bear">
   <button class="yes" onclick="showQ3()">Next ➡️</button>
 </div>
 
@@ -91,7 +89,6 @@ img{width:150px;margin:15px 0;border-radius:15px;}
   <p>You know you mean so much to me 🥺❤️</p>
   <p><b>Bahut pyar karti hoon had se bhi zyada…<br>
   Tumse bhi zyada 💕</b></p>
-  <img src="https://i.ibb.co/8mWw3Qb/teddy-kiss.png" alt="Teddy Bear">
   <button class="yes" onclick="finalMessage()">Click Next 💌</button>
 </div>
 
@@ -106,13 +103,13 @@ img{width:150px;margin:15px 0;border-radius:15px;}
     aur tumhara saath meri duniya complete karta hai.<br><br>
 
     I don’t need perfect days,<br>
-    I just need <b>you</b> in all my days. 💫
+    I just need **you** in all my days. 💫
   </p>
-  <img src="https://i.ibb.co/8mWw3Qb/teddy-kiss.png" alt="Teddy Bear">
+  <img src="https://i.ibb.co/0c1V7F5/teddy-kiss.png" alt="Teddy Kiss" width="200">
+  <p>Happy Valentine to my Valentine 💘</p>
   <audio autoplay>
     <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
   </audio>
-  <h3>Happy Valentine to my Valentine 💘</h3>
 </div>
 
 </div>
@@ -120,59 +117,42 @@ img{width:150px;margin:15px 0;border-radius:15px;}
 <script>
 function moveNo(){
   const b=document.getElementById("noBtn");
-  const x=Math.random()*200;
-  const y=Math.random()*200;
-  b.style.left=x+"px";
-  b.style.top=y+"px";
+  b.style.left=Math.random()*200+"px";
+  b.style.top=Math.random()*200+"px";
 }
-
 function showQ2(){
-  document.getElementById("q1").style.display="none";
-  document.getElementById("q2").style.display="block";
+  q1.style.display="none";
+  q2.style.display="block";
 }
-
 function correctQ2(){
-  document.getElementById("q2").style.display="none";
-  document.getElementById("q2c").style.display="block";
-  playMiniSong();
+  q2.style.display="none";
+  q2c.style.display="block";
 }
-
 function showQ3(){
-  document.getElementById("q2c").style.display="none";
-  document.getElementById("q3").style.display="block";
+  q2c.style.display="none";
+  q3.style.display="block";
 }
-
 function correctQ3(){
-  document.getElementById("q3").style.display="none";
-  document.getElementById("finalLove").style.display="block";
-  playMiniSong();
+  q3.style.display="none";
+  finalLove.style.display="block";
 }
-
 function finalMessage(){
-  document.getElementById("finalLove").style.display="none";
-  document.getElementById("end").style.display="block";
-  playFinalSong();
+  finalLove.style.display="none";
+  end.style.display="block";
 }
-
 function wrong(){
   alert("Galat jawab 😜 dobara socho!");
-}
-
-// Mini romantic song for correct answer
-function playMiniSong(){
-  let audio=new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3");
-  audio.play();
-}
-
-// Final Valentine song
-function playFinalSong(){
-  let audio=new Audio("https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3");
-  audio.play();
 }
 </script>
 
 </body>
 </html>
+
+  
+  
+
+
+  
 
    
 
