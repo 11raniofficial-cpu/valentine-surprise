@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Just For You ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+    }
+
+    .box {
+      background: rgba(255,255,255,0.15);
+      padding: 30px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      width: 90%;
+      max-width: 380px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.1rem;
+    }
+
+    button {
+      padding: 12px 20px;
+      border-radius: 25px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #333;
+      color: white;
+      position: absolute;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .question {
+      margin-top: 20px;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box">
+  <h1>Hey Love ❤️</h1>
+  <p>I made something special for you.</p>
+
+  <div class="question">
+    💭 Do you know how much you mean to me?
+  </div>
+
+  <div class="question">
+    🌸 You make my bad days better and good days perfect.
+  </div>
+
+  <h2>Will you be my Valentine? 💘</h2>
+
+  <button class="yes" onclick="yesClicked()">YES 💖</button>
+  <button class="no" id="noBtn" onmouseover="moveNo()">NO 😏</button>
+
+  <div id="finalMsg" class="hidden">
+    <h2>YAYYYY 💍💖</h2>
+    <p>
+      You just made me the happiest person.<br>
+      Happy Valentine’s Day 💕<br>
+      I’m so lucky to have you.
+    </p>
+  </div>
+</div>
+
+<script>
+  function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  }
+
+  function yesClicked() {
+    document.getElementById("finalMsg").classList.remove("hidden");
+  }
+</script>
+
+</body>
+</html>
